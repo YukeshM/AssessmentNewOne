@@ -1,0 +1,15 @@
+D:\gislen\Assessment\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+D:\gislen\Assessment\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+D:\gislen\Assessment\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
+D:\gislen\Assessment\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
+D:\gislen\Assessment\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
+D:\gislen\Assessment\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\gislen\Assessment\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+D:\gislen\Assessment\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+D:\gislen\Assessment\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\gislen\Assessment\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+D:\gislen\Assessment\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+D:\gislen\Assessment\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+D:\gislen\Assessment\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+D:\gislen\Assessment\BusinessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+D:\gislen\Assessment\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CopyComplete

@@ -1,0 +1,15 @@
+D:\gislen\Assessment\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.deps.json
+D:\gislen\Assessment\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.runtimeconfig.json
+D:\gislen\Assessment\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.runtimeconfig.dev.json
+D:\gislen\Assessment\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.dll
+D:\gislen\Assessment\DataAccessLayer\bin\Debug\net5.0\ref\DataAccessLayer.dll
+D:\gislen\Assessment\DataAccessLayer\bin\Debug\net5.0\DataAccessLayer.pdb
+D:\gislen\Assessment\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.csproj.AssemblyReference.cache
+D:\gislen\Assessment\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\gislen\Assessment\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.AssemblyInfoInputs.cache
+D:\gislen\Assessment\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.AssemblyInfo.cs
+D:\gislen\Assessment\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\gislen\Assessment\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.dll
+D:\gislen\Assessment\DataAccessLayer\obj\Debug\net5.0\ref\DataAccessLayer.dll
+D:\gislen\Assessment\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.pdb
+D:\gislen\Assessment\DataAccessLayer\obj\Debug\net5.0\DataAccessLayer.genruntimeconfig.cache

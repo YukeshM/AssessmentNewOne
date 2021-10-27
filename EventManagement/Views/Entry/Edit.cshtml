@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Event Management";
+}
+
+@model DataAccessLayer.ViewModel.AdminViewModel;
+
+
+<form method="get" asp-action="Edit">
+
+    <div class="row">
+
+        @*<div asp-validation-summary="All" class="text-danger"></div>*@
+
+
+        <div class="col-6 form-group">
+            <label asp-for="UserId"></label>
+            <input type="number" asp-for="UserId" class="form-control" />
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 form-group ">
+            <label asp-for="Title"></label>
+            <input type="text" asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+
+        <div class="col-6 form-group">
+            <label asp-for="Address"></label>
+            <input type="text" asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 form-group">
+            <label asp-for="City"></label>
+            <input type="text" asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 form-group">
+            <label asp-for="Owner"></label>
+            <input type="text" asp-for="Owner" class="form-control" />
+            <span asp-validation-for="Owner" class="text-danger"></span>
+        </div>
+
+
+        <div class="col-6 form-group">
+            <label asp-for="EventTypeId"></label>
+            <input type="number" asp-for="EventTypeId" class="form-control" />
+            <span asp-validation-for="EventTypeId" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 form-group">
+            <label asp-for="StartDateTime"></label>
+            <input type="datetime-local" asp-for="StartDateTime" class="form-control" />
+            <span asp-validation-for="StartDateTime" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 form-group">
+            <label asp-for="EndDateTime"></label>
+            <input type="datetime-local" asp-for="EndDateTime" class="form-control" />
+            <span asp-validation-for="EndDateTime" class="text-danger"></span>
+        </div>
+
+        <div class="col-6 form-group">
+            <label asp-for="Description"></label>
+            <input type="text" asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+
+
+    </div>
+    <a asp-action="Edit" asp-controller="Entry" class="btn btn-primary">Update</a>
+
+</form>
+
+<style>
+
+    button {
+        margin-left: 0px;
+    }
+</style>
