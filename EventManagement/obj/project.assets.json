@@ -6399,6 +6399,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "BusinessLayer >= 1.0.0",
+      "DataAccessLayer >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 5.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.11"
     ]
@@ -6432,6 +6433,9 @@
           "projectReferences": {
             "D:\\gislen\\Assessment\\BusinessLayer\\BusinessLayer.csproj": {
               "projectPath": "D:\\gislen\\Assessment\\BusinessLayer\\BusinessLayer.csproj"
+            },
+            "D:\\gislen\\Assessment\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "D:\\gislen\\Assessment\\DataAccessLayer\\DataAccessLayer.csproj"
             }
           }
         }

@@ -10,12 +10,12 @@ namespace BusinessLayer.Interface
     {
         void Create(AdminViewModel model);
 
-        Event Get(int id);
+        AdminViewModel Get(int id);
 
         IEnumerable<AdminViewModel> GetAll();
 
         void Edit(AdminViewModel model);
 
-        void Delete(AdminViewModel model);
+        void Delete(int id);
     }
 }

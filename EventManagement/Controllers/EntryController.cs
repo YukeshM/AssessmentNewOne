@@ -28,10 +28,13 @@ namespace EventManagement.Controllers
         [HttpPost]
         public IActionResult Create(AdminViewModel model)
         {
-            
+            if (ModelState.IsValid)
+            {
                 _crudBAL.Create(model);
                 return RedirectToAction("GetAll", "Entry");
-               
+            }
+            return View(model);    
+            
         }
 
         [HttpGet]
@@ -54,27 +57,29 @@ namespace EventManagement.Controllers
             return View(Events);
         }
 
-        //[HttpGet]
-        //public IActionResult Edit(int id)
-        //{
-        //    if (id != 0)
-        //    {
-        //        var singleEventDetail = _crudBAL.Get(id);
-        //        return View(singleEventDetail);
-        //    }
-        //    return View();
-        //}
-
         [HttpGet]
-        public IActionResult Edit(AdminViewModel model)
-        {           
-                _crudBAL.Edit(model);
-                return RedirectToAction("GetAll", "Entry");          
+        public IActionResult Edit(int id)
+        {
+            if (id != 0)
+            {
+                var singleEventDetail = _crudBAL.Get(id);
+                return View(singleEventDetail);
+            }
+            return View();
         }
 
-        public IActionResult Delete(AdminViewModel model)
+        [HttpPost]
+        public IActionResult Edit(int id, AdminViewModel model)
+        {
+            var newModel = new AdminViewModel();
+            newModel = model;
+            _crudBAL.Edit(model);
+            return RedirectToAction("GetAll", "Entry");
+        }
+
+        public IActionResult Delete(int id)
         {         
-                _crudBAL.Delete(model);
+                _crudBAL.Delete(id);
                 return RedirectToAction("GetAll", "Entry");           
         }
     }

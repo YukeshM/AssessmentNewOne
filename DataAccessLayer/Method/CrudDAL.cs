@@ -81,7 +81,7 @@ namespace DataAccessLayer.Method
         #endregion
 
 
-        public Event Get(int id)
+        public AdminViewModel Get(int id)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace DataAccessLayer.Method
                 {
                     sqlConnection.Open();
 
-                    var model = sqlConnection.Query<Event>("EXECUTE GetEventById @Id",
+                    var model = sqlConnection.Query<AdminViewModel>("EXECUTE GetEventById @Id",
                         new
                         {
                             @Id = id
@@ -154,7 +154,7 @@ namespace DataAccessLayer.Method
             }
         }
 
-        public void Delete(AdminViewModel model)
+        public void Delete(int id)
         {
             try
             {
@@ -163,7 +163,7 @@ namespace DataAccessLayer.Method
 
                     sqlConnection.Query("EXECUTE DeleteEvent @Id", new
                     {
-                        @Id = model.Id
+                        @Id = id
                     });
 
                 }

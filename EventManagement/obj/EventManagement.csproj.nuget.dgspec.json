@@ -168,6 +168,9 @@
             "projectReferences": {
               "D:\\gislen\\Assessment\\BusinessLayer\\BusinessLayer.csproj": {
                 "projectPath": "D:\\gislen\\Assessment\\BusinessLayer\\BusinessLayer.csproj"
+              },
+              "D:\\gislen\\Assessment\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "D:\\gislen\\Assessment\\DataAccessLayer\\DataAccessLayer.csproj"
               }
             }
           }

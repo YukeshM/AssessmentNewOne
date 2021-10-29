@@ -31,11 +31,11 @@ namespace BusinessLayer.Method
         }
 
 
-        public Event Get(int id)
+        public AdminViewModel Get(int id)
         {
             try
             {
-                var singleEventDetail = new Event();
+                var singleEventDetail = new AdminViewModel();
                 return singleEventDetail = _crudDAL.Get(id);
             }
             catch (Exception)
@@ -73,11 +73,11 @@ namespace BusinessLayer.Method
         }
 
 
-        public void Delete(AdminViewModel model)
+        public void Delete(int id)
         {
             try
             {
-                _crudDAL.Delete(model);
+                _crudDAL.Delete(id);
             }
             catch (Exception)
             {

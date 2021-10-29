@@ -34,6 +34,7 @@
       "EventManagement/1.0.0": {
         "dependencies": {
           "BusinessLayer": "1.0.0",
+          "DataAccessLayer": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "5.0.10",
           "Microsoft.EntityFrameworkCore.Design": "5.0.11",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",

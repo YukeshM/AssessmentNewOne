@@ -10,7 +10,11 @@
     <div class="row">
 
         @*<div asp-validation-summary="All" class="text-danger"></div>*@
-
+        <div class="col-6 form-group">
+            <label asp-for="Id"></label>
+            <input type="number" asp-for="Id" class="form-control" />
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
 
         <div class="col-6 form-group">
             <label asp-for="UserId"></label>

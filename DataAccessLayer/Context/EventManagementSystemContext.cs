@@ -80,12 +80,12 @@ namespace DataAccessLayer.Context
                 entity.HasOne(d => d.EventType)
                     .WithMany(p => p.Events)
                     .HasForeignKey(d => d.EventTypeId)
-                    .HasConstraintName("FK__Event__EventType__2C3393D0");
+                    .HasConstraintName("FK__Event__EventType__2B3F6F97");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Events)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__Event__User_Id__2B3F6F97");
+                    .HasConstraintName("FK__Event__User_Id__2C3393D0");
             });
 
             modelBuilder.Entity<EventType>(entity =>
@@ -136,7 +136,7 @@ namespace DataAccessLayer.Context
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.UserTbls)
                     .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK__UserTbl__Role_Id__267ABA7A");
+                    .HasConstraintName("FK__UserTbl__Role_Id__2D27B809");
             });
 
             OnModelCreatingPartial(modelBuilder);
