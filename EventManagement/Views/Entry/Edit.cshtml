@@ -5,7 +5,7 @@
 @model DataAccessLayer.ViewModel.AdminViewModel;
 
 
-<form method="get" asp-action="Edit">
+<form method="Post" asp-action="Edit">
 
     <div class="row">
 
@@ -71,7 +71,7 @@
 
 
     </div>
-    <a asp-action="Edit" asp-controller="Entry" class="btn btn-primary">Update</a>
+    <button type="submit" class="btn btn-primary">Update</button>
 
 </form>
 

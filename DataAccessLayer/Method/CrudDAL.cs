@@ -54,23 +54,6 @@ namespace DataAccessLayer.Method
 
 
                 }
-
-                //using (var sqlConnection = new SqlConnection(_connectionString))
-                //{
-                //    sqlConnection.Query<Event>("EXECUTE CreateEvent User_Id, EventType_Id, Title, Description, Address, City, Owner, StartDateTime , EndDateTime",
-                //        new
-                //        {
-                //            model.UserId,
-                //            model.EventTypeId,
-                //            model.Title,
-                //            model.Description,
-                //            model.Address,
-                //            model.City,
-                //            model.Owner,
-                //            model.StartDateTime,
-                //            model.EndDateTime
-                //        });
-                //}
             }
             catch (Exception)
             {
@@ -135,6 +118,7 @@ namespace DataAccessLayer.Method
                     sqlConnection.Execute(storedProcedure,
                     new
                     {
+                        @Id = model.Id,
                         @User_Id = model.UserId,
                         @EventType_Id = model.EventTypeId,
                         @Title = model.Title,

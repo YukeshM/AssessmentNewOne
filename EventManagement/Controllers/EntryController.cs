@@ -69,10 +69,21 @@ namespace EventManagement.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, AdminViewModel model)
+        public IActionResult Edit( AdminViewModel model)
         {
-            var newModel = new AdminViewModel();
-            newModel = model;
+            //var newModel = new AdminViewModel(){
+            //    Id = model.Id,
+            //    UserId = model.UserId,
+            //    EventTypeId = model.EventTypeId,
+            //    Title = model.Title,
+            //    Description = model.Description,
+            //    Address = model.Address,
+            //    City = model.City,
+            //    Owner = model.Owner,
+            //    StartDateTime = model.StartDateTime,
+            //    EndDateTime = model.EndDateTime
+                
+            //};
             _crudBAL.Edit(model);
             return RedirectToAction("GetAll", "Entry");
         }
