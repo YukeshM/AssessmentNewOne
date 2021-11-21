@@ -3,153 +3,209 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<link href="~/Content/style.css" rel="stylesheet" />
+
 <form method="post" action="Create">
-    <h2>Customer satisfactory feedback</h2>
-    <div class="row form-group">
-        <h3>Product information</h3>
-        <div class="row form-group">
+    <h2 id="Heading">Customer satisfactory feedback</h2>
 
-            <label for="Category">Category</label>
-            <select name="" class="form-select" aria-label="Default select example" id="Category">
-                <option selected></option>
-            </select>
-            <span class="text-danger" id="CategoryCheck"></span>
+    <h6>Product information</h6>
 
-            <label for="Product">Product</label>
-            <select name="" id="">
-                <option value=""></option>
-            </select>
+    <div class="form-group">
+        <div class="row">
+
+            <div class="col-2">
+                <label for="">Category</label>
+            </div>
+            <div class="col-4">
+                <select name="" class="form-select " id="Category">
+                    <option value="">select</option>
+                </select>
+                <span class="text-danger" id="CategoryCheck">Category required!</span>
+            </div>
+
+
+            <div class="col-2">
+                <label>Product</label>
+            </div>
+            <div class="col-4">
+                <select name="" id="Product" class="form-select">
+                    <option value="">select</option>
+                </select>
+                <span class="text-danger" id="ProductCheck">Product required!</span>
+            </div>
+
         </div>
+    </div>
 
-        <div class="row form-group">
-            <div>
+    <div class="form-group Satisfactory">
+        <div class="row">
+            <div class="col-4">
                 <p>
                     overall, how satisfied were you with the product/
                     service
                 </p>
-                <input type="radio" id="Satisfactory"/>
             </div>
-        </div>
+            <div class="col-8" id="Satisfactory">
+                <input type="radio" value="1" name="satisfaction" />Very Satisfied
+                <input type="radio" value="2" name="satisfaction" />Satisfied
+                <input type="radio" value="3" name="satisfaction" />Neutral
+                <input type="radio" value="4" name="satisfaction" />Un satisfied
+                <input type="radio" value="5" name="satisfaction" />Very un satisfied
+                <input type="radio" value="6" name="satisfaction" />N/A
 
-        <div class="row form-group">
-            <div>
-                <p>which of the following category have you purchased in the last two month</p>
-                <input type="checkbox">
+                <span class="text-danger" id="SatisfactoryCheck">select a option!</span>
             </div>
-        </div>
-
-        <div class="row form-group">
-            <p>what do you like about the service/product?</p>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
-        </div>
-
-        <div class="row form-group">
-            <h2>User information</h2>
-        </div>
-
-        <div class="row form-group">
-            <label for="Name">Name</label>
-            <select name="" id="">
-                <option value="">Title</option>
-            </select>
-
-            <input type="text" placeholder="First name" id="firstName" autocomplete="off">
-            <span class="text-danger" id="firstNameCheck">First Name is required!</span>
-
-            <input type="text" placeholder="Initial">
-        </div>
-
-        <div class="row form-group">
-            <input type="text" placeholder="street address">
-        </div>
-
-        <div class="row form-group">
-            <input type="text" placeholder="street address line 2">
-        </div>
-
-        <div class="row form-group">
-            <input type="text" placeholder="City*">
-            <input type="text" placeholder="Region*">
-        </div>
-
-        <div class="row form-group">
-            <input type="number" placeholder="Zipcode/Postal*">
-            <select name="" id="">
-                <option value="">Country</option>
-            </select>
-        </div>
-
-        <div class="row form-group">
-            <h3>More about unsatisfactory</h3>
-            <p>Reason for unsatisfaction</p>
-            <textarea name="" id="" cols="30" rows="5"></textarea>
-            <input type="file">
         </div>
     </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-4">
+                <p>which of the following category have you purchased in the last two month</p>
+            </div>
+            <div class="col-8" id="PurchasedProductInLastTwoMonth">
+                <input type="checkbox" value="1">Air conditioner
+                <input type="checkbox" value="2" />Television
+                <input type="checkbox" value="3" />Mobile
+
+                <span class="text-danger" id="PurchasedProductInLastTwoMonthCheck">select a option!</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-4">
+                <p>what do you like about the service/product?</p>
+
+            </div>
+            <div class="col-8">
+                <textarea class="form-control" name="" id="Comment" cols="30" rows="5" autocomplete="off"></textarea>
+                <span class="text-danger" id="CommentCheck">Comment is required!</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <h6>User information</h6>
+    </div>
+
+    <div class="form-group inputField">
+        <div class="row">
+
+            <label for="Name">Name</label>
+
+            <div class="col">
+                <select class="form-select" name="" id="Title">
+                    <option value="">select</option>
+                </select>
+                <span class="text-danger" id="TitleCheck">Select a title!</span>
+            </div>
+
+            <div class="col">
+                <input class="form-control" type="text" placeholder="First name" id="FirstName" autocomplete="off">
+                <span class="text-danger" id="FirstNameCheck">First Name is required!</span>
+            </div>
+
+            <div class="col">
+                <input class="form-control" type="text" id="Initial" placeholder="Initial" autocomplete="off">
+                <span class="text-danger" id="InitialCheck">Initial is required!</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group inputField">
+        <input class="form-control" type="text" id="Email" placeholder="Email*" autocomplete="off">
+        <span class="text-danger" id="EmailCheck">Email-Id is required!</span>
+    </div>
+
+    <div class="form-group inputField">
+        <input class="form-control" type="text" id="StreetAddress" autocomplete="off" placeholder="street address">
+        <span class="text-danger" id="StreetAddressCheck">Street address is required!</span>
+    </div>
+
+    <div class="form-group inputField">
+        <input class="form-control" type="text" id="StreetAddressLine2" autocomplete="off" placeholder="street address line 2">
+    </div>
+
+    <div class="form-group inputField">
+
+        <div class="row">
+            <div class="col-6">
+                <input class="form-control " type="text" id="City" autocomplete="off" placeholder="City*">
+                <span class="text-danger" id="CityCheck">City is required!</span>
+            </div>
+
+            <div class="col-6">
+                <input class="form-control " type="text" id="Region" autocomplete="off" placeholder="Region*">
+                <span class="text-danger" id="RegionCheck">Region is required!</span>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+    <div class="form-group inputField">
+
+        <div class="row">
+            <div class="col-6">
+                <input type="number" class="form-control " autocomplete="off" min="1" max="999999" id="Zipcode" placeholder="Zipcode/Postal*">
+                <span class="text-danger" id="ZipcodeCheck">zipcode is required!</span>
+            </div>
+
+            <div class="col-6">
+                <select class="form-select " name="" id="Country">
+                    <option value="">Country</option>
+                </select>
+                <span class="text-danger" id="CountryCheck">select a country!</span>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <div class="form-group inputField">
+        <h6>More about unsatisfactory</h6>
+
+        <div class="row">
+            <div class="col-3">
+                <p>Reason for unsatisfaction</p>
+
+            </div>
+            <div class="col-9">
+                <textarea class="form-control" name="" autocomplete="off" id="Reason" cols="30" rows="5"></textarea>
+                <span class="text-danger" id="ReasonCheck">Reason is required!</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group inputField">
+        <div class="row">
+            <div class="col">
+                <input type="file" class="form-control" id="File">
+                <span class="text-danger" id="FileCheck">Choose a file!</span>
+            </div>
+        </div>
+    </div>
+
+    <button type="reset" class="btn btn-danger" id="btnReset">Reset</button>
+
+    <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
 </form>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script src="~/Scripts/Feedback.js"></script>
 
-@*<script src="~/Scripts/Feedback.js"></script>*@
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $.ajax({
-            type: "GET",
-            url: "/Feedback/GetSatisfactory",
-            success: function (data) {
-                var option;
-                $.each(data, function (i, name) {
-                    option += "<input  value =" + name.SatisfactoryId + "/>" + name.SatisfactoryStatus ;
-                });
-                console.log(option);
-                $("#Satisfactory").append(option);
-            }
-        });
-
-
-        $.ajax({
-            type: "GET",
-            url: "/Feedback/GetCategory",
-            success: function (data) {
-                var option;
-                $.each(data, function (i, category) {
-                    option += "<option value=" + category.CategoryId + ">" + category.CategoryName + "</option>";
-                });
-                console.log(option);
-                $("#CategoryCheck").append(option);
-            }
-        });
-
-        //validate first name
-        $("#firstNameCheck").hide();
-        let firstNameError = true;
-        $("#firstName").keyup(function () {
-            validateName()
-        });
-
-        function validateName() {
-            let firstName = document.getElementById('firstName');
-
-            if (firstName.value == "") {
-                $("#firstNameCheck").show();
-                firstNameError = false;
-            }
-            else if ((firstName.value.length < 3) || (firstName.value.length > 50)) {
-                $("#firstNameCheck").show();
-                $("#firstNameCheck").html("length of the name should be between 3 and 50");
-                firstNameError = false;
-
-            }
-            else {
-                $("#firstNameCheck").hide();
-                firstNameError = true;
-            }
-        }
-
-    });
-
-</script>

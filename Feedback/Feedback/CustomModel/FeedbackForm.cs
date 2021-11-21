@@ -1,40 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Feedback.CustomModel
+﻿namespace Feedback.CustomModel
 {
-    public class Feedback
+    public class FeedbackForm
     {
-        List<Product> ProductList
+        public int Category
         {
-            get;
-            set;
+            get; set;
         }
 
-        List<Category> CategoryList
+
+        public int Product
         {
-            get;
-            set;
+            get; set;
         }
 
-        List<Country> CountryList
+
+        public int Country
         {
-            get;
-            set;
+            get; set;
         }
 
-        List<Satisfactory> SatisfactorieList
+        public int Satisfactory
         {
-            get;
-            set;
+            get; set;
         }
 
-        List<Title> TitleList
+
+        public int Title
         {
-            get;
-            set;
+            get; set;
+        }
+
+        public int Product2
+        {
+            get; set;
         }
 
         public string Comment
@@ -82,6 +80,10 @@ namespace Feedback.CustomModel
             get; set;
         }
 
-        
+        public byte[] FeedbackFile
+        {
+            get; set;
+        }
+
     }
 }

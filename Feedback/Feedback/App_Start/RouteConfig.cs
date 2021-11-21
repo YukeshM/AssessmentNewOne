@@ -18,8 +18,8 @@ namespace Feedback
                 url: "{controller}/{action}/{id}",
                 defaults: new
                 {
-                    controller = "Home",
-                    action = "Index",
+                    controller = "Feedback",
+                    action = "Create",
                     id = UrlParameter.Optional
                 }
             );

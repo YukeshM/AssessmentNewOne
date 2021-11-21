@@ -1,0 +1,27 @@
+﻿form {
+    border: solid grey 1px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+#Heading{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+h6 {
+    margin: 20px 0px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background: grey;
+}
+.Satisfactory{
+    margin-top: 20px;
+}
+.inputField{
+    margin-bottom: 20px;
+}
+button{
+    
+}

@@ -2,10 +2,11 @@
 using Feedback.CustomModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web.Mvc;
-using System.Data;
 
 namespace Feedback.Controllers
 {
@@ -92,6 +93,28 @@ namespace Feedback.Controllers
             }
         }
 
+        //get product with respect to category id
+        public ActionResult GetProductByCategoryId(int id)
+        {
+            try
+            {
+                using (var sqlConnection = new SqlConnection(_connectionString))
+                {
+                    sqlConnection.Open();
+                    IEnumerable<Product> productsByCategory = sqlConnection.Query<Product>("ProcCategoryBasedOnCategoryId",new
+                    {
+                        @CategoryId = id
+                    }, commandType: CommandType.StoredProcedure);
+                    return Json(productsByCategory, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         //get title
         public ActionResult GetTitle()
         {
@@ -131,13 +154,45 @@ namespace Feedback.Controllers
 
         // POST: Feedback/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(FeedbackForm feedback)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    //using (var target = new MemoryStream())
+                    //{
+                    //    var objFile = new Files();
+                    //    feedback.FeedbackFile.CopyTo(target);
+                    //    objFile.DataFiles = target.ToArray();
 
-                return RedirectToAction("Index");
+
+                    //}
+                    using (var sqlConnection = new SqlConnection(_connectionString))
+                    {
+                        sqlConnection.Open();
+                        sqlConnection.Execute("", new
+                        {
+                            @Category = feedback.Category,
+                            @product = feedback.Product,
+                            @Satisfactory = feedback.Satisfactory,
+                            @PurchasedProductInTwoMonth = feedback.Product2,
+                            @Comment = feedback.Comment,
+                            @Title = feedback.Title,
+                            @FirstName = feedback.FirstName,
+                            @Initial = feedback.Initial,
+                            @StreetAddress = feedback.StreetAddress,
+                            @StreetAddressLine2 = feedback.StreetAddressLine,
+                            @City = feedback.City,
+                            @Region = feedback.Region,
+                            @Zipcode = feedback.Zipcode,
+                            @Country = feedback.Country,
+                            @Reason = feedback.Reason,
+                            @FeedbackFile = feedback.FeedbackFile
+                        });
+                    }
+                }
+                return View();
             }
             catch
             {
