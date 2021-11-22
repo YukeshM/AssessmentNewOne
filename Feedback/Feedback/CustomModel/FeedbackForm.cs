@@ -1,4 +1,6 @@
-﻿namespace Feedback.CustomModel
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Feedback.CustomModel
 {
     public class FeedbackForm
     {
@@ -45,6 +47,10 @@
             get; set;
         }
 
+        public string Email
+        {
+            get; set;
+        }
         public string Initial
         {
             get; set;
@@ -80,7 +86,7 @@
             get; set;
         }
 
-        public byte[] FeedbackFile
+        public IFormFile FeedbackFile
         {
             get; set;
         }

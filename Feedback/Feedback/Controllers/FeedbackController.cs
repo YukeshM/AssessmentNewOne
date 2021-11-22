@@ -1,12 +1,14 @@
 ﻿using Dapper;
 using Feedback.CustomModel;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
 using System.Web.Mvc;
+using ActionResult = System.Web.Mvc.ActionResult;
+using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
 
 namespace Feedback.Controllers
 {
@@ -101,7 +103,7 @@ namespace Feedback.Controllers
                 using (var sqlConnection = new SqlConnection(_connectionString))
                 {
                     sqlConnection.Open();
-                    IEnumerable<Product> productsByCategory = sqlConnection.Query<Product>("ProcCategoryBasedOnCategoryId",new
+                    IEnumerable<Product> productsByCategory = sqlConnection.Query<Product>("ProcCategoryBasedOnCategoryId", new
                     {
                         @CategoryId = id
                     }, commandType: CommandType.StoredProcedure);
@@ -154,49 +156,49 @@ namespace Feedback.Controllers
 
         // POST: Feedback/Create
         [HttpPost]
-        public ActionResult Create(FeedbackForm feedback)
+        public ActionResult CreateFeedback([FromForm] FeedbackForm feedback)
         {
             try
             {
-                if (ModelState.IsValid)
+
+                //using (var target = new MemoryStream())
+                //{
+                //    var objFile = new Files();
+                //    feedback.FeedbackFile.CopyTo(target);
+                //    objFile.DataFiles = target.ToArray();
+
+
+                //}
+                using (var sqlConnection = new SqlConnection(_connectionString))
                 {
-                    //using (var target = new MemoryStream())
-                    //{
-                    //    var objFile = new Files();
-                    //    feedback.FeedbackFile.CopyTo(target);
-                    //    objFile.DataFiles = target.ToArray();
-
-
-                    //}
-                    using (var sqlConnection = new SqlConnection(_connectionString))
+                    sqlConnection.Open();
+                    sqlConnection.Execute("CreateFeedback", new
                     {
-                        sqlConnection.Open();
-                        sqlConnection.Execute("", new
-                        {
-                            @Category = feedback.Category,
-                            @product = feedback.Product,
-                            @Satisfactory = feedback.Satisfactory,
-                            @PurchasedProductInTwoMonth = feedback.Product2,
-                            @Comment = feedback.Comment,
-                            @Title = feedback.Title,
-                            @FirstName = feedback.FirstName,
-                            @Initial = feedback.Initial,
-                            @StreetAddress = feedback.StreetAddress,
-                            @StreetAddressLine2 = feedback.StreetAddressLine,
-                            @City = feedback.City,
-                            @Region = feedback.Region,
-                            @Zipcode = feedback.Zipcode,
-                            @Country = feedback.Country,
-                            @Reason = feedback.Reason,
-                            @FeedbackFile = feedback.FeedbackFile
-                        });
-                    }
+                        @Category = feedback.Category,
+                        @product = feedback.Product,
+                        @Satisfactory = feedback.Satisfactory,
+                        @PurchasedProductInTwoMonth = feedback.Product2,
+                        @Comment = feedback.Comment,
+                        @Title = feedback.Title,
+                        @FirstName = feedback.FirstName,
+                        @Email = feedback.Email,
+                        @Initial = feedback.Initial,
+                        @StreetAddress = feedback.StreetAddress,
+                        @StreetAddressLine2 = feedback.StreetAddressLine,
+                        @City = feedback.City,
+                        @Region = feedback.Region,
+                        @Zipcode = feedback.Zipcode,
+                        @Country = feedback.Country,
+                        @Reason = feedback.Reason,
+                        @FeedbackFile = feedback.FeedbackFile
+                    }, commandType: CommandType.StoredProcedure);
                 }
-                return View();
+
+                return RedirectToAction("CreateFeedback", "Feedback");
             }
             catch
             {
-                return View();
+                return View("CreateFeedback", "Feedback");
             }
         }
 
@@ -207,20 +209,20 @@ namespace Feedback.Controllers
         }
 
         // POST: Feedback/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
+        //[HttpPost]
+        //public ActionResult Edit(int id)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
         // GET: Feedback/Delete/5
         public ActionResult Delete(int id)
@@ -229,19 +231,19 @@ namespace Feedback.Controllers
         }
 
         // POST: Feedback/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+        //[HttpPost]
+        //public ActionResult Delete(int id)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }

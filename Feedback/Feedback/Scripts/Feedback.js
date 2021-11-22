@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿
+
+$(document).ready(function () {
 
     $.ajax({
         type: "GET",
@@ -174,6 +176,28 @@
 
     //validate email
     $("#EmailCheck").hide();
+    let emailError = true;
+    //$("#Email").keyup(function () {
+    //    ValidateEmail();
+    //});
+
+    //function ValidateEmail() {
+    //    let email = $("#Email").val();
+    //    email.addEventListener("blur", () => {
+    //        let regex =
+    //            /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+    //        let s = email.value;
+    //        if (regex.test(s)) {
+    //            email.classList.remove(
+    //                'is-invalid');
+    //            emailError = true;
+    //        }
+    //        else {
+    //            email.classList.add(
+    //                'is-invalid');
+    //            emailError = false;
+    //    })       
+    //}
 
     //validate street address
     $("#StreetAddressCheck").hide();
@@ -300,24 +324,27 @@
     }
 
     //validate file
+    let feedbackFormData = new FormData();
     $("#FileCheck").hide();
     let fileError = true;
-    $("#File").change(function () {
+    $("#file").change(function () {
         ValidateFile();
     });
 
     function ValidateFile() {
-        let file = $("#File");
-        file = file[0].files[0];
+        let File = $('#file');
+        console.log(File);
+        File = File[0].files[0];
 
-        if (file) {
-            if (file.type.split("/")[1] !== "pdf" || !(file.size < 500000)) {
+        if (File) {
+            if (File.type.split("/")[1] !== "pdf" || !(File.size < 500000)) {
                 $("#FileCheck").html("upload resume less than 500KB and in pdf format");
                 $("#FileCheck").show();
                 document.getElementById("File").value = "";
                 fileError = false;
             }
             else {
+                $("#FileCheck").hide();
                 fileError = true;
             }
         }
@@ -329,32 +356,45 @@
         }
     };
 
-
+    let satisfactory = $("#satisfaction input[type=radio]:checked").val();
+    console.log(satisfactory);
     //create feedback
     $("#btnSubmit").click(function () {
-        validateName()
-        if (firstNameError == true) {
+        validateName(),
+            ValidateCategory(),
+            validateZipcode(),
+            ValidateCity(),
+            ValidateComment(),
+            ValidateFile(),
+            ValidateInitial(),
+            ValidateReason(),
+            ValidateRegion()
+        if (firstNameError == true && categoryError == true && zipcodeError == true && cityError == true && commentError == true && fileError == true && initialError == true && reasonError == true && regionError == true) {
+
+            feedbackFormData.append("Category", $("#Category").val());
+            feedbackFormData.append("Product", $("#Product").val());
+            feedbackFormData.append("Country", $("#Country").val());
+            feedbackFormData.append("Satisfactory", $("#Satisfactory :checked").val());
+            feedbackFormData.append("Title", $("#Title").val());
+            feedbackFormData.append("Product2", $("#PurchasedProductInLastTwoMonth :checked").val());
+            feedbackFormData.append("Comment", $("#Comment").val());
+            feedbackFormData.append("FirstName", $("#FirstName").val());
+            feedbackFormData.append("Initial", $("#Initial").val());
+            feedbackFormData.append("StreetAddress", $("#StreetAddress").val());
+            feedbackFormData.append("StreetAddressLine", $("#StreetAddressLine2").val());
+            feedbackFormData.append("City", $("#City").val());
+            feedbackFormData.append("Region", $("#Region").val());
+            feedbackFormData.append("Reason", $("#Reason").val());
+            feedbackFormData.append("FeedbackFile", $("#file")[0].files[0]);
+            feedbackFormData.append("Zipcode", $("#Zipcode").val());
+            console.log(feedbackFormData.get("FeedbackFile"));
+
             $.ajax({
-                type: "POST",
-                url: "/Feedback/Create",
-                data: {
-                    Category: $("#Category").val(),
-                    Product: $("#Product").val(),
-                    Country: $("#Country").val(),
-                    Satisfactory: $("#Satisfactory").val(),
-                    Title: $("#Title").val(),
-                    Product2: $("#PurchasedProductInLastTwoMonth").val(),
-                    Comment: $("#Comment").val(),
-                    FirstName: $("#FirstName").val(),
-                    Initial: $("#Initial").val(),
-                    StreetAddress: $("#StreetAddress").val(),
-                    StreetAddressLine: $("#StreetAddressLine2").val(),
-                    City: $("#City").val(),
-                    Region: $("#Region").val(),
-                    Reason: $("#Reason").val(),
-                    FeedbackFile: $("#File").val(),
-                    Zipcode: $("#Zipcode").val()                
-                },
+                url: "/Feedback/CreateFeedback",
+                data: feedbackFormData,
+                processData: false,
+                contentType: false,
+                method: "POST",
                 success: function () {
                     alert("Feedback submitted successfully!");
                 }
